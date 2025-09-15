@@ -4,12 +4,11 @@ title: "About Me"
 
 ## Background
 
-Write a brief introduction about yourself here. Include:
-
-- Your academic background
-- Your interest in data science
-- Your career goals
-- Any relevant experience or projects
+- Curently pursuing a BS in Statistics
+- Due to my love of sports, I have gained an interest in solving problems through data analysis
+- Help others solve problems through data
+- Research Assistant, Teaching Assistant
+- Projects: Baseball Predictive Model, Car Crash Data Analysis
 
 ## Education
 
