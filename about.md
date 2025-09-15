@@ -13,35 +13,34 @@ Write a brief introduction about yourself here. Include:
 
 ## Education
 
-- **[Your Degree]** - [University Name], [Year]
-- **Relevant Coursework**: Statistics, Data Analysis, Programming, etc.
+- BS in Statistics - BYU, 2026
+- **Relevant Coursework**: Statistics, Data Analysis, Programming, Analysis
 
 ## Skills & Interests
 
 ### Technical Skills
-- **Programming**: Python
-- **Data Analysis**: Pandas, NumPy
-- **Visualization**: Matplotlib, Seaborn
-- **Machine Learning**: Scikit-learn
-- **Tools**: Jupyter Notebooks, Git/GitHub
+- **Programming**: Python, R
+- **Data Analysis**: Pandas, NumPy, Excel
+- **Visualization**: Matplotlib, GGPlot, Tableau
+- **Tools**: Jupyter Notebooks, Git/GitHub, Quarto
 
 ### Areas of Interest
-- [Your specific interests, e.g., environmental data, healthcare analytics, finance, etc.]
-- [Other areas you're curious about]
+- Sports analytics, Data Analysis, Business Intelligence
+- Finance, Risk Analysis, Marketing
 
 ## Goals
 
 Describe what you hope to achieve through your data science journey:
 
-- Short-term learning objectives
-- Long-term career aspirations
-- Types of problems you want to solve
+- Master the use of data analysis and AI tools
+- Be in an influential position to make big problem-solving decisions
+- Assist people in making smart financial decisions
 
 ## Contact
 
-- **Email**: your.email@example.com
-- **GitHub**: [github.com/your-username](https://github.com/your-username)
-- **LinkedIn**: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+- **Email**: imick5555@gmail.com
+- **GitHub**: (https://github.com/Imick5555)
+- **LinkedIn**: (https://www.linkedin.com/in/isaac-miller-8ab535335/)
 
 ---
 
