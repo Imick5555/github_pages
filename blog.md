@@ -1,32 +1,104 @@
 Tutorial for wrangling and analyzing data
 
-Intro: 
-Have you ever wondered if you can predict the stock market? If you can predict the future, even? Of course, nobody knows for sure, and this tutorial is NOT meant for someone to perfectly predict when the stock market will increase, or decrease. However, by learning how to properly wrangle and analyze data, somebody can make an investment decision with a better understanding of these things. This tutorial is meant to teach people to properly wrnagle and orgaznie data in a way that they can glean information from it, allowing them to make educated decisions.
+Have you ever wondered if you can predict the stock market? If you can predict the future, even? Of course, nobody knows for sure, and this tutorial is NOT meant for someone to perfectly predict when the stock market, or anything, will increase, or decrease. However, by learning how to properly wrangle and analyze data, somebody can make an investment, or life, decision with a better understanding of these things. This tutorial is meant to teach people to properly wrangle and organize data in a way that they can glean information from it, allowing them to make educated decisions.
 
 Step 1:
-Choose your dataset. This can be a dataset of anything you're interested in learning more about. For this tutorial, we will be working with this dataset of stock market prices by day and month, and analyzing its seasonality. 
+Choose your dataset. This can be a dataset of anything you're interested in learning more about. For this tutorial, we will be working with this dataset of NASDAQ stock market prices by day and month, and analyzing its average price by day of the week. 
 
 
-
-Read the dataset into your code with this:
-
+We read the dataset into the code with this:
+```{python}
 import pandas as pd
-df = pd.read_csv(file_path)
+df = pd.read_csv("C:\Users\Isaac\OneDrive\Documents\fall 2025 semester\STAT 386\HistoricalData_1758833379259.csv")
+```
 
-Great! Now that you've got it read in, you can start playing with it.
+Great! Now that you've got it read in, we can start playing with it.
 
-print(df.head()) allows you to see the first few rows of the dataset.
+```{python}
+print(df.head())
+```
+
+ allows you to see the first few rows of the dataset.
 
 Step 2:
-Wrnagle and clean the data. The dataset will inevitably have certtian things that you don't care about, or that you don't want to sue. You will have to remove certain rows and columns from the data, as well as certain parts that might have N/A or empty values in them. You will also have to perform some transformations. For this dataset, we will have to figure out what the days of the week are for each date in the dataset
+Wrangle and clean the data. The dataset will inevitably have certain things that you don't care about, or that you don't want to sue. You will have to remove certain rows and columns from the data, as well as certain parts that might have N/A or empty values in them. You will also have to perform some transformations. For this dataset, we will have to trim down the dataset, as it is very large, and figure out what the days of the week are for each date in the dataset
+
+```{python}
+df_last_year = df.iloc[:365]
+```
+
+This command, .iloc[], made it so the dataset is now only the top 365 rows (0 to 364), so that now we only have the last year in our dataset, and the rest is trimmed out. Now we must figure out how to change the date values into the names of days of the week. Eventually, we will hope to see what the average stock price is for each day of the week.
+
+```{python}
+df_last_year["Date"] = pd.to_datetime(df_last_year["Date"])
+```
+
+This code makes sure that it in the dataset, the dates are recognized as acutal days, not as just some weird numbers.
+Now we will create a column in which the names of the days are listed, as in days of the week. For the sake of organization, I will move the column of day names to the left side.
+
+```{python}
+df_last_year["Day of Week"] = df_last_year["Date"].dt.day_name()
+df_last_year.insert(0, "Day of week", df_last_year["Day of Week"])
+```
+
+Now let's check that we did our code correctly:
+```{python}
+print(df_last_year.head())
+```
+
+Looks good! I created the day of week column, and removed it from the end, inserting it instead on the far left where it looks more natural.
+
+Now we will further filter the dataset to prepare to create a table, showing the average value of the NASDAQ for each day ofht eweek. For this I will want to remove the "Date", "Open", "Low", and "High" columns as we will use "Close/Last" as the value to measure a day's sotck value by.
+
+```{python}
+df_last_year = df_last_year.drop(['Date', 'Open', 'High', 'Low'], axis=1) 
+```
+
+And let's check again that those columns were removed properly:
+
+```{python}
+print(df_last_year.head())
+```
+
+Perfect!
+
+Now I want to make the table. I will do this by using the groupby function in python to group all of the days together. I will then create a column of the average value for each day.
+
+```{python}
+df_day_avg = df_last_year.groupby('Day of week')['Close/Last'].mean().reset_index()
+print(df_day_avg)
+```
+
 Step 3: 
 Perform EDA (Exploratory Data Analysis). Once you have your dataset, you want to visualize it. There are lots of different ways we can visualize it, so think about what way would make the most sense. Do you want a bar chart? Scatterplot? 
 For this example, we will use a bar chart becuase it makes sense to use one to compare the stock market prices on each day of the week over a period of time. We can see what the average stock closing price is over a year's worth of Sundays, Mondays, etc.
 
+```{python}
+order = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
+df_day_avg["Day of week"] = pd.Categorical(df_day_avg["Day of week"], categories=order, ordered=True)
+df_day_avg = df_day_avg.sort_values("Day of week")
+df_day_avg.plot(kind="bar", x="Day of week", y="Close/Last", legend=False, title="NASDAQ average by Day of Week")
+```
+
+Here's the graph, with the days in order from left to right. While there is a difference, it is so small compared to this scale that it is hard to see any differences at all. Let's scale the bar chart differently so that we can see the differences more easily:
+
+```{python}
+day_plot = df_day_avg.plot(kind="bar", x="Day of week", y="Close/Last", legend=False, title="NASDAQ average by Day of Week")
+day_plot.set_ylim(19250, 19500)
+day_plot
+```
+
+Here, we can see it scaled differently from 19250 to 19500, and at this scale we can see that certian days of the week have higher average values than others, over the last two years. Though the difference is overall still pretty small, we can see there is a difference, and it looks like it is highest on Wednesdays, while lowest on Mondays.
+
 Step 4:
-What does it look like? Analyze what trends may be interesting or significant about your graphic, and data. For the purpose of our research, we will perform an ANOVA test to test each day of the week against every other day, seeing if there is a significant difference between one or more certain days, and the rest of the days of the week over the past year.
+What does it look like? Analyze what trends may be interesting or significant about your graphic, and data. We can analyze these things and conlcude that perhaps stock market trends can vary by day of the week. Perhaps this could influence our decisions regarding investing money, and when would be best to do so. On the other hand, the differences are not very large, and most people invest for the long term, so the information may not be so useful, but it is interesting to see that the value is higher some days more so than others. Regardless of the data we are analyzing, it is interesting and useful to use these techniques to wrangle data and discover new things.
 
-Step 5:
+Call to action:
+Try this out yourself! With a dataset, follow these steps to wrangle it, whittling it down to what you want to measure specifically. Finish by creating a meaningful graphic that measures what you're studying in a visual way. Comment with your results!
 
-S&P Dow Jones Indices LLC, Dow Jones Industrial Average [DJIA], retrieved from FRED, Federal Reserve Bank of St. Louis; https://fred.stlouisfed.org/series/DJIA, September 25, 2025.
+Dataset source:
+https://www.nasdaq.com/market-activity/index/comp/historical
+
+
+
 

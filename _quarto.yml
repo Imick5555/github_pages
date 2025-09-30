@@ -12,9 +12,9 @@ website:
       - text: "Home"
         href: index.md
       - text: "About Me"
-        href: about.md
+        href: about.qmd
       - text: "blogPost"
-        href: blog.md
+        href: blog.qmd
       - text: "Projects"
         menu:
           - text: "All Projects"
