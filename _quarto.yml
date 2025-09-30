@@ -10,7 +10,7 @@ website:
     background: primary
     left:
       - text: "Home"
-        href: index.md
+        href: index.qmd
       - text: "About Me"
         href: about.qmd
       - text: "blogPost"
@@ -18,7 +18,7 @@ website:
       - text: "Projects"
         menu:
           - text: "All Projects"
-            href: projects/index.md
+            href: projects/index.qmd
           - text: "---"
           - text: "Exploratory Data Analysis"
             href: projects/eda.qmd

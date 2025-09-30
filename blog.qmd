@@ -9,7 +9,7 @@ Choose your dataset. This can be a dataset of anything you're interested in lear
 We read the dataset into the code with this:
 ```{python}
 import pandas as pd
-df = pd.read_csv("C:\Users\Isaac\OneDrive\Documents\fall 2025 semester\STAT 386\HistoricalData_1758833379259.csv")
+df = pd.read_csv("C:\\Users\\Isaac\\OneDrive\\Documents\\fall 2025 semester\\STAT 386\\HistoricalData_1758833379259.csv")
 ```
 
 Great! Now that you've got it read in, we can start playing with it.
