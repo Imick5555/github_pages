@@ -4,6 +4,7 @@ project:
 
 website:
   title: "Your Name - Data Science Portfolio"
+  site-url: https://imick5555.github.io/github_pages/
   description: "A showcase of my data science projects and learning journey"
   
   navbar:
@@ -47,3 +48,7 @@ format:
     code-fold: true
     code-tools: true
     css: styles.css
+
+engine: jupyter
+jupyter:
+  python: "C:/Users/Isaac/AppData/Local/Programs/Python/Python312/python.exe"
