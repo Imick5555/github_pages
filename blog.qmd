@@ -1,4 +1,9 @@
-
+---
+title: "Data Wrangling Tutorial"
+format: html
+code-fold: false
+jupyter: python3
+---
 Tutorial for wrangling and analyzing data
 
 Have you ever wondered if you can predict the stock market? If you can predict the future, even? Of course, nobody knows for sure, and this tutorial is NOT meant for someone to perfectly predict when the stock market, or anything, will increase, or decrease. However, by learning how to properly wrangle and analyze data, somebody can make an investment, or life, decision with a better understanding of these things. This tutorial is meant to teach people to properly wrangle and organize data in a way that they can glean information from it, allowing them to make educated decisions.
@@ -10,6 +15,7 @@ Choose your dataset. This can be a dataset of anything you're interested in lear
 We read the dataset into the code with this:
 ```{python}
 import pandas as pd
+import matplotlib.pyplot as plt
 df = pd.read_csv("C:\\Users\\Isaac\\OneDrive\\Documents\\fall 2025 semester\\STAT 386\\HistoricalData_1758833379259.csv")
 ```
 
