@@ -14,11 +14,11 @@ website:
     background: primary
     left:
       - text: "Home"
-        href: index.qmd
+        href: index.html
       - text: "About Me"
-        href: about.qmd
+        href: about.html
       - text: "blogPost"
-        href: blog.qmd
+        href: blog.html
       - text: "Projects"
         menu:
           - text: "All Projects"
