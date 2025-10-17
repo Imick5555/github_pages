@@ -16,7 +16,7 @@ website:
       - text: "Home"
         href: index.qmd
       - text: "About Me"
-        href: about.html
+        href: about.qmd
       - text: "blogPost"
         href: blog.qmd
       - text: "Projects"
