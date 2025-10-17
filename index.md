@@ -1,10 +1,12 @@
 ---
-title: "Welcome to My Data Science Portfolio"
+title: "My Data Science Portfolio"
 ---
 
-# Hello! I'm [Your Name] 👋
+# Hello! I'm Isaac! 👋
 
-Welcome to my data science portfolio! This site shows my journey learning data science and analytics. Here you'll find projects that demonstrate what I've learned and discovered.
+Welcome to my data science portfolio! This site shows my journey learning data science and analytics. As a statistics major with an emphasis in Data Science, I have developed, and am currently developing, valuable skills related to the field. My interests are in learning and understanding how the world works, and how we can solve current, challenging problems. I love the idea of using data analysis to improve anything, whether it is business-related, medical-related, or even sports-related.
+
+Here you'll find projects and posts that demonstrate what I've learned and discovered. I try to apply the things I learned to real-world subjects, to show how they can be useful in solving / understanding real-world problems and situations. My goal is for others to also discover and develop these valuable skills through my posts, so that more people can be aware of these things and so we can learn together!
 
 ## 🎓 About This Portfolio
 
